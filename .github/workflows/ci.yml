@@ -16,3 +16,5 @@ jobs:
       - run: npm ci
       - run: npm i @azure/functions@3.5.1
       - run: npm test
+
+      
