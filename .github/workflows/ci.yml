@@ -12,9 +12,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: cd func-dojo-cicd-skool
-      - run: npm ci
-      - run: npm i @azure/functions@3.5.1
-      - run: npm test
-
-      
+      - name: install and run test
+        working-directory: ./func-dojo-cicd-skool
+        run: |
+          npm ci
+          npm i @azure/functions@3.5.1
+          npm test
