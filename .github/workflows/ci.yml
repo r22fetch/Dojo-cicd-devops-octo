@@ -12,9 +12,23 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: install and run test
+      - name: Run npm install
         working-directory: ./func-dojo-cicd-skool
-        run: |
-          npm ci
-          npm i @azure/functions@3.5.1
-          npm test
+        run: npm ci
+      - name: Run npm test
+        working-directory: ./func-dojo-cicd-skool
+        run: npm test
+  
+  jest-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Run npm install
+        working-directory: ./func-dojo-cicd-skool
+        run: npm ci
+      - name: Run npm coverage
+        working-directory: ./func-dojo-cicd-skool
+        run: npm run coverage
